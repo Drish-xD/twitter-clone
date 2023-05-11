@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/features/auth/view/login_view.dart';
 import 'package:twitter_clone/theme/app_theme.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MainApp extends StatelessWidget {
       theme: AppTheme.theme,
       home: const Scaffold(
         body: Center(
-          child: Text('Hello World!'),
+          child: LoginView(),
         ),
       ),
     );
