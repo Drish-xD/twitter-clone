@@ -1,22 +1,24 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/common/common.dart';
 import 'package:twitter_clone/constants/constants.dart';
+import 'package:twitter_clone/features/auth/controller/auth_controller.dart';
 import 'package:twitter_clone/features/auth/view/login_view.dart';
 import 'package:twitter_clone/features/auth/widgets/auth_field.dart';
 import 'package:twitter_clone/theme/pallete.dart';
 
-class SignupView extends StatefulWidget {
+class SignupView extends ConsumerStatefulWidget {
   static route() => MaterialPageRoute(
         builder: (context) => const SignupView(),
       );
   const SignupView({Key? key}) : super(key: key);
 
   @override
-  State<SignupView> createState() => _SignupViewState();
+  ConsumerState<SignupView> createState() => _SignupViewState();
 }
 
-class _SignupViewState extends State<SignupView> {
+class _SignupViewState extends ConsumerState<SignupView> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final appbar = UIConstants.myAppbar();
@@ -26,6 +28,14 @@ class _SignupViewState extends State<SignupView> {
     super.dispose();
     emailController.dispose();
     passwordController.dispose();
+  }
+
+  void onSignUp() {
+    ref.read(authControllerProvider.notifier).signUp(
+          email: emailController.text,
+          password: passwordController.text,
+          context: context,
+        );
   }
 
   @override
@@ -52,7 +62,7 @@ class _SignupViewState extends State<SignupView> {
                 const SizedBox(height: 40),
                 // Login Button
                 RoundedButton(
-                  onTap: () {},
+                  onTap: onSignUp,
                   label: 'Sign up',
                 ),
                 const SizedBox(height: 40),
