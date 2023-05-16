@@ -12,9 +12,15 @@ class UIConstants {
           Pallete.blueColor,
           BlendMode.srcIn,
         ),
-        height: 40,
+        height: 35,
       ),
       centerTitle: true,
     );
   }
+
+  static List<Widget> bottonTabBarPages = [
+    const Text("Feed Screen"),
+    const Text("Search Screen"),
+    const Text("Notification Screen"),
+  ];
 }

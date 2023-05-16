@@ -20,7 +20,11 @@ class MainApp extends ConsumerWidget {
       theme: AppTheme.theme,
       home: Scaffold(
         body: Center(
-          child: ref.watch(currentUserAccProvider).when(
+          child: ref
+              .watch(
+                currentUserAccProvider,
+              )
+              .when(
                 data: (user) {
                   if (user != null) {
                     return const HomeView();
