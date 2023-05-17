@@ -19,7 +19,7 @@ class RoundedButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: bgColor,
-        minimumSize: const Size.fromHeight(50),
+        // minimumSize: const Size.fromHeight(50),
       ),
       onPressed: onTap,
       child: Text(

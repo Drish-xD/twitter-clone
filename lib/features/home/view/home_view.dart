@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter_clone/constants/constants.dart';
+import 'package:twitter_clone/features/tweets/view/create_tweet_view.dart';
 import 'package:twitter_clone/theme/theme.dart';
 
 class HomeView extends StatefulWidget {
@@ -22,6 +23,13 @@ class _HomeViewState extends State<HomeView> {
     setState(() {
       _page = index;
     });
+  }
+
+  onCreateTweet() {
+    Navigator.push(
+      context,
+      CreateTweetView.route(),
+    );
   }
 
   @override
@@ -76,7 +84,7 @@ class _HomeViewState extends State<HomeView> {
             Radius.circular(28),
           ),
         ),
-        onPressed: () {},
+        onPressed: onCreateTweet,
         child: const Icon(
           Icons.add,
           color: Pallete.whiteColor,
